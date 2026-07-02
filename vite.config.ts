@@ -9,13 +9,10 @@ export default defineConfig({
     tailwindcss(),
     tanstackStart({
       server: {
-        preset: 'vercel',
+        preset: 'vercel-server',
       }
     }),
     viteReact(),
     tsConfigPaths(),
-  ],
-  ssr: {
-    noExternal: true
-  }
+  ]
 });

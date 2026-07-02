@@ -26,10 +26,16 @@ await copyDir('dist/client', '.vercel/output/static');
 // 4. Copy dist/server to index.func
 await copyDir('dist/server', '.vercel/output/functions/index.func');
 
-// 5. Create edge function config
+// 5. Create Node.js function config and wrapper
+await fs.writeFile('.vercel/output/functions/index.func/index.js', `
+import server from './server.js';
+export default server.fetch;
+`.trim());
+
 await fs.writeFile('.vercel/output/functions/index.func/.vc-config.json', JSON.stringify({
-  runtime: 'edge',
-  entrypoint: 'server.js'
+  runtime: 'nodejs20.x',
+  handler: 'index.js',
+  launcherType: 'Nodejs'
 }, null, 2));
 
 // 6. Create routing config
