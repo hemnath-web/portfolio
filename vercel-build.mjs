@@ -5,7 +5,7 @@ import path from 'path';
 console.log("Starting custom Vercel build...");
 
 // 1. Run standard build
-execSync('npm run build', { stdio: 'inherit' });
+execSync('npx vite build', { stdio: 'inherit' });
 
 // 2. Create Vercel Build Output API structure
 await fs.mkdir('.vercel/output/static', { recursive: true });
