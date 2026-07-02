@@ -14,5 +14,8 @@ export default defineConfig({
     }),
     viteReact(),
     tsConfigPaths(),
-  ]
+  ],
+  ssr: {
+    noExternal: true
+  }
 });
