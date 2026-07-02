@@ -9,7 +9,7 @@ export default defineConfig({
     tailwindcss(),
     tanstackStart({
       server: {
-        preset: 'vercel-server',
+        preset: 'vercel',
       }
     }),
     viteReact(),
